@@ -4,6 +4,8 @@
 
 def cube(num):
     return num*num*num # returns the value of the equation
+    #cant put code after the 'return' - breaks out of function
 
 
-print(cube(3))
+result = cube(3)
+print(result)
