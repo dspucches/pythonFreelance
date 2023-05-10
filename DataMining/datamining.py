@@ -14,7 +14,9 @@ import selenium     #   automatically check scraped data and perform QA audits a
 
 from selenium import webdriver
 
-browser = webdriver.Firefox()
-browser.get('http://selenium.dev/')
+browser = webdriver.Firefox()           # chooses browser and places inside variable
+browser.get('http://selenium.dev/')     # opens url 'http://selenium.dev/' using the browser stored in variable 'browser'
+
+
 
 
