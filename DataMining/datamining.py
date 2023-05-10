@@ -14,9 +14,21 @@ import selenium     #   automatically check scraped data and perform QA audits a
 
 from selenium import webdriver
 
-browser = webdriver.Firefox()           # chooses browser and places inside variable
+browser = webdriver.Edge()           # chooses browser and places inside variable
 browser.get('http://selenium.dev/')     # opens url 'http://selenium.dev/' using the browser stored in variable 'browser'
 
 
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.common.keys import Keys
 
+browser = webdriver.Edge()
+
+browser.get('http://www.yahoo.com')
+assert 'Yahoo' in browser.title
+
+elem = browser.find_element(By.NAME, 'p')  # Find the search box
+elem.send_keys('seleniumhq' + Keys.RETURN)
+
+# browser.quit()
 
