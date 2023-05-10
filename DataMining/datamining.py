@@ -3,7 +3,7 @@
 # Project: Url Scraping - Total Malware Data by location
 # Description: The purpose of this project is to conduct data mining tool that scrapes websites for
 # data that pertain to the total websites that talk about malware by geolocation.
-# Notes: insure to use a proxy
+# Notes: insure to use a proxy, import urls to scan as a list
 
 import zenrows      # evades CAPTCHAs and antibots
 import scrapy       # open-source tool, extract data from websites, fast high-level web crawling
@@ -25,25 +25,25 @@ from selenium.webdriver.common.keys import Keys
 
 browser = webdriver.Edge()
 
-browser.get('http://www.yahoo.com')
-assert 'Yahoo' in browser.title
+browser.get('http://www.google.com')
+assert "Yahoo" in browser.title
 
 elem = browser.find_element(By.NAME, 'p')  # Find the search box
 elem.send_keys('seleniumhq' + Keys.RETURN)
 
-# browser.quit()
+browser.quit()
 
-# from selenium import webdriver
+from selenium import webdriver
 
-# class GoogleTestCase(unittest.TestCase):
+class GoogleTestCase(unittest.TestCase):
 
-    # def setUp(self):
-        # self.browser = webdriver.Firefox()
-        # self.addCleanup(self.browser.quit)
+    def setUp(self):
+        self.browser = webdriver.Firefox()
+        self.addCleanup(self.browser.quit)
 
-    # def test_page_title(self):
-        # self.browser.get('http://www.google.com')
-        # self.assertIn('Google', self.browser.title)
+    def test_page_title(self):
+        self.browser.get('http://www.google.com')
+        self.assertIn('Google', self.browser.title)
 
-# if __name__ == '__main__':
-    # unittest.main(verbosity=2)
+if __name__ == '__main__':
+    unittest.main(verbosity=2)
