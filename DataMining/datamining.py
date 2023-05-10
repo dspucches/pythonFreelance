@@ -10,6 +10,7 @@ import scrapy       # open-source tool, extract data from websites, fast high-le
 import requests     # Requests allow the user to sent requests to the HTTP server and GET response back in the form of HTML or JSON response. It also allows the user to send POST requests to the server to modify or add some content.
 import io           #  automatically check scraped data and perform QA audits at regular intervals
 import selenium     #   automatically check scraped data and perform QA audits at regular intervals
+import unittest
 
 
 from selenium import webdriver
@@ -32,3 +33,17 @@ elem.send_keys('seleniumhq' + Keys.RETURN)
 
 # browser.quit()
 
+# from selenium import webdriver
+
+# class GoogleTestCase(unittest.TestCase):
+
+    # def setUp(self):
+        # self.browser = webdriver.Firefox()
+        # self.addCleanup(self.browser.quit)
+
+    # def test_page_title(self):
+        # self.browser.get('http://www.google.com')
+        # self.assertIn('Google', self.browser.title)
+
+# if __name__ == '__main__':
+    # unittest.main(verbosity=2)
