@@ -9,12 +9,22 @@ from tkinter import filedialog
 
 def UploadAction(event=None):
     filename = filedialog.askopenfilename() # stores imported file into the variable 'filename'
-    db = ipinput.readxl(filename) # reads the Excel file and stores into 'db'
+    return filename
 
-
+    # have reader pull IP from each cell in the first column
+    # take that IP and input into abuseipdb
+    # scrape abuseipdb.com for the results
 
 root = tk.Tk()
 button = tk.Button(root, text='Import Excel Document', command=UploadAction, height=5, width=45)
 button.pack()
-
 root.mainloop()
+
+def read(filename):
+    db = ipinput.readxl(filename) # reads the Excel file and stores into 'db'
+
+    # have reader pull IP from each cell in the first column
+    return xyz
+
+def scrape():
+    return xyz
