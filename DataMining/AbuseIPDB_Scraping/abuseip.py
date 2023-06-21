@@ -12,7 +12,7 @@ def UploadAction(event=None):
     return filename
 
     # have reader pull IP from each cell in the first column
-    # take that IP and input into abuseipdb
+    # take that IP and input into abuseipdb.com
     # scrape abuseipdb.com for the results
 
 root = tk.Tk()
