@@ -2,17 +2,15 @@
 # Date: 6/20/2023
 # About: These script was built to input a set of IP addresses then gathers the required data from the output. This includes the number of times that IP has been reported; the domain it's associated with; and the report table. This will output the data into a CSV file.
 
-import openpyxl
-import tkinter as tk
 import time
-import sys
-
+import tkinter as tk
 from tkinter import filedialog
+
+import openpyxl
+from openpyxl.workbook import Workbook
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-from openpyxl import Workbook
-from contextlib import redirect_stdout
 
 
 def uploadform(event=None):
@@ -55,6 +53,3 @@ root = tk.Tk()
 button = tk.Button(root, text='Import Excel Document', command=uploadform, height=5, width=45)
 button.pack()
 root.mainloop()
-
-abuseipdbscript.txt
-Displaying abuseipdbscript.txt.
