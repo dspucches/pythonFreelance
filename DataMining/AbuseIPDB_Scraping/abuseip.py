@@ -4,11 +4,10 @@
 
 import time
 import tkinter as tk
-import xlsxwriter
 from tkinter import filedialog
 
 import openpyxl
-from openpyxl.workbook import Workbook
+from openpyxl.styles import Font
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -34,6 +33,10 @@ def uploadform(event=None):
             elem = browser.find_element(By.CLASS_NAME, 'text-primary')
             workbook = openpyxl.load_workbook('hello.xlsx')
             sheet = workbook.active
+            sheet['A1'] = 'Malicious IPs'
+            # Set font size to 18 and make text bold
+            font = Font(size=18, bold=True)
+            sheet['A1'].font = font
             # Find the next available cell in column A
             max_row = sheet.max_row
             next_cell = 'A{}'.format(max_row + 1)
