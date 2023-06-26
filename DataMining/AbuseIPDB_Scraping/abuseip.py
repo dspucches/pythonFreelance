@@ -4,6 +4,7 @@
 
 import time
 import tkinter as tk
+import xlsxwriter
 from tkinter import filedialog
 
 import openpyxl
@@ -31,16 +32,15 @@ def uploadform(event=None):
         elem = browser.find_elements(By.ID, 'report-wrapper')  # finds the entire report of the search
         if 'was found in our database!' in elem[0].text:
             elem = browser.find_element(By.CLASS_NAME, 'text-primary')
-            workbook = Workbook()
+            workbook = openpyxl.load_workbook('hello.xlsx')
             sheet = workbook.active
-            row_num = 0
-            for row in sheet.iter_rows(min_row=1):
-                for cell in row:
-                    cell.value = elem.text
-                    row_num += 1
-                    workbook.save('hello.xlsx')
-            # print(elem.text)
-            # print(naughtyip.text)
+            # Find the next available cell in column A
+            max_row = sheet.max_row
+            next_cell = 'A{}'.format(max_row + 1)
+            # Write the value to the next available cell in column A
+            sheet[next_cell] = elem.text
+
+            workbook.save('hello.xlsx')
         else:
             print(value + " was not identified as malicious")
 
